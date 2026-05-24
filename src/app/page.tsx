@@ -531,7 +531,7 @@ export default function CrickVoiceAI() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#030712] text-gray-100 flex flex-col font-sans overflow-x-hidden selection:bg-neon-green/30">
+    <div className="relative min-h-screen bg-[#05070f] text-gray-100 flex flex-col font-sans overflow-x-hidden selection:bg-[#c5f82a]/30">
       
       {/* Cinematic scroll intro */}
       <AnimatePresence mode="wait">
@@ -551,7 +551,7 @@ export default function CrickVoiceAI() {
         initial={introFinished ? { opacity: 1 } : { opacity: 0 }}
         animate={introFinished ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="flex flex-col min-h-screen w-full"
+        className="flex flex-col min-h-screen w-full relative"
       >
         {/* Background spotlights & grids */}
         <div className="stadium-lights" />
