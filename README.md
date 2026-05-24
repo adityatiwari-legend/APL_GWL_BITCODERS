@@ -1,6 +1,6 @@
 # CrickVoice AI: Multimodal AI Cricket Commentator & Match Emotion Predictor
 
-deployement- crickvibe.devnio.tech
+deployement- https://crickvibe.devnio.tech/
 
 CrickVoice AI is a premium, cinematic single-page web application that converts cricket match situations and video clips into rich, broadcast-style visual analytics and live vocal commentary. It features a stunning stadium-glowing dark theme and utilizes server-side **Gemini 2.5 Flash** models to deliver realistic television broadcast simulations.
 
