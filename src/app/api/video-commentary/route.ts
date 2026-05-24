@@ -4,9 +4,10 @@ import ffmpegPath from "ffmpeg-static";
 import { exec } from "child_process";
 import fs from "fs";
 import path from "path";
+import os from "os";
 
-// Workspace-contained temporary uploads folder
-const TEMP_DIR = path.join(process.cwd(), "temp-uploads");
+// Cross-platform & Serverless-compatible temporary uploads folder
+const TEMP_DIR = os.tmpdir();
 
 // Get absolute path to static FFmpeg binary in a Turbopack-safe manner
 const getFfmpegPath = (): string | null => {
