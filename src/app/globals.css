@@ -1,99 +1,153 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #f3f4f6;
-  --neon-green: #22c55e;
-  --neon-volt: #adff2f;
+  --background: #0E0F0F;
+  --secondary-surface: #1A1C1A;
+  --accent-green: #A3C853;
+  --soft-gray: #2B2D2B;
+  --white-text: #FFFFFF;
+  --muted-text: #B8B8B8;
+  --card-bg: rgba(255, 255, 255, 0.04);
   --gold: #f59e0b;
+  --red: #ef4444;
+  --indigo: #6366f1;
+  --teal: #14b8a6;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-neon-green: var(--neon-green);
-  --color-neon-volt: var(--neon-volt);
+  --color-secondary-surface: var(--secondary-surface);
+  --color-accent-green: var(--accent-green);
+  --color-soft-gray: var(--soft-gray);
+  --color-white-text: var(--white-text);
+  --color-muted-text: var(--muted-text);
+  --color-card-bg: var(--card-bg);
   --color-gold: var(--gold);
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
+  --color-red-accent: var(--red);
+  --color-indigo-accent: var(--indigo);
+  --color-teal-accent: var(--teal);
+  
+  --font-bebas: var(--font-bebas-neue), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
 }
 
 /* Custom global styles */
 body {
   background-color: var(--background);
-  color: var(--foreground);
+  color: var(--white-text);
   overflow-x: hidden;
-  font-family: var(--font-sans);
+  font-family: var(--font-poppins), system-ui, sans-serif;
 }
 
-/* Stadium Spotlight Background Effect */
+/* Premium Stadium Vibe Background Overlays */
 .stadium-lights {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 600px;
+  height: 900px;
   background: 
-    radial-gradient(circle 120px at 15% 0%, rgba(34, 197, 94, 0.18), transparent 70%),
-    radial-gradient(circle 150px at 50% -50px, rgba(173, 255, 47, 0.12), transparent 70%),
-    radial-gradient(circle 120px at 85% 0%, rgba(245, 158, 11, 0.12), transparent 70%),
-    radial-gradient(circle 400px at 50% 300px, rgba(3, 7, 18, 0), var(--background));
+    radial-gradient(circle 350px at 15% -50px, rgba(163, 200, 83, 0.22), transparent 75%),
+    radial-gradient(circle 450px at 50% -100px, rgba(163, 200, 83, 0.14), transparent 75%),
+    radial-gradient(circle 350px at 85% -50px, rgba(163, 200, 83, 0.18), transparent 75%),
+    radial-gradient(circle 600px at 50% 400px, rgba(14, 15, 15, 0), var(--background));
   pointer-events: none;
   z-index: 1;
 }
 
-/* Stadium Grid Lines Visual Overlay */
+/* Stadium grid overlay */
 .stadium-grid {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 800px;
-  background-size: 50px 50px;
+  height: 1000px;
+  background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-  mask-image: radial-gradient(ellipse at 50% 20%, black 40%, transparent 80%);
+    linear-gradient(to right, rgba(163, 200, 83, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(163, 200, 83, 0.015) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at 50% 20%, black 30%, transparent 80%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Lens Flare Spotlights */
+/* Sports floodlights sweeps */
 .spotlight-left {
   position: absolute;
-  top: -100px;
-  left: 5%;
-  width: 300px;
-  height: 600px;
-  background: conic-gradient(from 140deg at 50% 0%, rgba(34, 197, 94, 0.08) 0deg, transparent 40deg);
-  filter: blur(10px);
-  transform: rotate(-10deg);
+  top: -150px;
+  left: 10%;
+  width: 400px;
+  height: 800px;
+  background: conic-gradient(from 135deg at 50% 0%, rgba(163, 200, 83, 0.07) 0deg, transparent 50deg);
+  filter: blur(15px);
+  transform: rotate(-12deg);
   pointer-events: none;
   z-index: 2;
 }
 
 .spotlight-right {
   position: absolute;
-  top: -100px;
-  right: 5%;
-  width: 300px;
-  height: 600px;
-  background: conic-gradient(from 220deg at 50% 0%, rgba(245, 158, 11, 0.06) 0deg, transparent 40deg);
-  filter: blur(10px);
-  transform: rotate(10deg);
+  top: -150px;
+  right: 10%;
+  width: 400px;
+  height: 800px;
+  background: conic-gradient(from 225deg at 50% 0%, rgba(163, 200, 83, 0.07) 0deg, transparent 50deg);
+  filter: blur(15px);
+  transform: rotate(12deg);
   pointer-events: none;
   z-index: 2;
 }
 
-/* Glassmorphism Cards */
+/* Subtle background noise texture */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.015;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Floating particles in background */
+@keyframes float-particle {
+  0% {
+    transform: translateY(0px) translateX(0px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-80px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(1px);
+}
+
+/* Glassmorphism Cards: Custom 28px corners from user request */
 .glass-panel {
-  background: rgba(10, 15, 30, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 28px;
   box-shadow: 
-    0 10px 30px -10px rgba(0, 0, 0, 0.7),
-    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    0 15px 35px -10px rgba(0, 0, 0, 0.8),
+    inset 0 1px 2px rgba(255, 255, 255, 0.03);
 }
 
 .glass-panel-hover {
@@ -101,42 +155,33 @@ body {
 }
 
 .glass-panel-hover:hover {
-  transform: translateY(-2px);
-  border-color: rgba(34, 197, 94, 0.25);
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(163, 200, 83, 0.25);
   box-shadow: 
-    0 20px 40px -15px rgba(0, 0, 0, 0.8),
-    0 0 20px rgba(34, 197, 94, 0.05),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    0 25px 50px -15px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(163, 200, 83, 0.06),
+    inset 0 1px 2px rgba(255, 255, 255, 0.07);
 }
 
-/* Glowing Neon Borders */
-.neon-border-green {
-  border-color: rgba(34, 197, 94, 0.4);
-  box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+/* Premium sports button hover glow effect */
+.btn-premium-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.neon-border-gold {
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+.btn-premium-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  box-shadow: 0 0 25px 5px var(--accent-green);
+  transition: opacity 0.3s ease;
 }
 
-/* Custom Scrollbar for Stadium Vibe */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #030712;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1f2937;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(34, 197, 94, 0.4);
+.btn-premium-glow:hover::after {
+  opacity: 0.35;
 }
 
 /* Audio wave animation bars for commentary card */
@@ -148,9 +193,9 @@ body {
 .audio-bar {
   display: inline-block;
   width: 3px;
-  background-color: #22c55e;
+  background-color: var(--accent-green);
   border-radius: 9999px;
-  margin: 0 2px;
+  margin: 0 2.5px;
 }
 
 .audio-bar:nth-child(1) { animation: soundwave 1.2s infinite ease-in-out; }
@@ -159,15 +204,15 @@ body {
 .audio-bar:nth-child(4) { animation: soundwave 0.9s infinite ease-in-out 0.1s; }
 .audio-bar:nth-child(5) { animation: soundwave 1.1s infinite ease-in-out 0.3s; }
 
-/* Pulse animations */
+/* Pulse animations for logo / live tags */
 @keyframes pulse-glow {
   0%, 100% {
-    opacity: 0.3;
+    opacity: 0.4;
     transform: scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.05);
+    opacity: 0.8;
+    transform: scale(1.06);
   }
 }
 
@@ -175,25 +220,45 @@ body {
   animation: pulse-glow 3s infinite ease-in-out;
 }
 
-/* Custom Shaking Keyframes for high tension widgets */
+/* Custom tension stress vibration shaking keyframes */
 @keyframes shake-extreme {
   0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  20% { transform: translate(-1px, 1px) rotate(-0.5deg); }
-  40% { transform: translate(1px, -1px) rotate(0.5deg); }
-  60% { transform: translate(-1px, -1px) rotate(-0.5deg); }
-  80% { transform: translate(1px, 1px) rotate(0.5deg); }
+  25% { transform: translate(-1px, 0.5px) rotate(-0.3deg); }
+  50% { transform: translate(1px, -0.5px) rotate(0.3deg); }
+  75% { transform: translate(-0.5px, -1px) rotate(-0.3deg); }
 }
 
 .shake-tension {
-  animation: shake-extreme 0.8s infinite alternate ease-in-out;
+  animation: shake-extreme 1.2s infinite alternate ease-in-out;
 }
 
-/* Stadium atmosphere custom animation */
+/* Float animations */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
 }
 
 .float-slow {
   animation: float 6s infinite ease-in-out;
 }
+
+/* Custom Scrollbar for Stadium Vibe */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--soft-gray);
+  border-radius: 9999px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-green);
+}
+

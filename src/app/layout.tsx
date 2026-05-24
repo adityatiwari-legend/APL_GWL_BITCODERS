@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bebas_Neue, Poppins } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  variable: "--font-bebas-neue",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-poppins",
   subsets: ["latin"],
 });
 
@@ -23,12 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${bebasNeue.variable} ${poppins.variable} font-poppins antialiased`}
       >
         {children}
       </body>
     </html>
   );
 }
+
