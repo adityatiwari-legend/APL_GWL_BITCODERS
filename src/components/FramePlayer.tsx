@@ -19,7 +19,7 @@ export const FramePlayer: React.FC<FramePlayerProps> = ({ onIntroFinished }) => 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
-  // 1. Fetch dynamic frames from server-side directory scanner
+  // 1. Fetch dynamic frames from server-side directory scanner with client-side fallback
   useEffect(() => {
     const fetchFrames = async () => {
       try {
@@ -28,14 +28,21 @@ export const FramePlayer: React.FC<FramePlayerProps> = ({ onIntroFinished }) => 
         if (data.frames && data.frames.length > 0) {
           setFramePaths(data.frames);
         } else {
-          // Direct fallback if frames folder is empty or errors
-          setIsLoading(false);
-          onIntroFinished();
+          // Fallback to static sequence array if API returns empty
+          console.warn("API returned empty frames list, generating static client fallback...");
+          const generatedList = Array.from({ length: 240 }, (_, i) => {
+            const num = String(i + 1).padStart(3, "0");
+            return `/Assets/frames/ezgif-frame-${num}.jpg`;
+          });
+          setFramePaths(generatedList);
         }
       } catch (err) {
-        console.error("Failed to load dynamic frames path list:", err);
-        setIsLoading(false);
-        onIntroFinished();
+        console.error("Failed to load dynamic frames path list, using client fallback:", err);
+        const generatedList = Array.from({ length: 240 }, (_, i) => {
+          const num = String(i + 1).padStart(3, "0");
+          return `/Assets/frames/ezgif-frame-${num}.jpg`;
+        });
+        setFramePaths(generatedList);
       }
     };
     fetchFrames();
