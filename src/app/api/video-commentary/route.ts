@@ -8,13 +8,31 @@ import path from "path";
 // Workspace-contained temporary uploads folder
 const TEMP_DIR = path.join(process.cwd(), "temp-uploads");
 
+// Get absolute path to static FFmpeg binary in a Turbopack-safe manner
+const getFfmpegPath = (): string | null => {
+  const customPath = path.join(
+    process.cwd(),
+    "node_modules",
+    "ffmpeg-static",
+    process.platform === "win32" ? "ffmpeg.exe" : "ffmpeg"
+  );
+  
+  if (fs.existsSync(customPath)) {
+    return customPath;
+  }
+  
+  // Fallback if custom path doesn't exist
+  return ffmpegPath;
+};
+
 // Helper function to extract video duration using static FFmpeg
 const getVideoDuration = (videoPath: string): Promise<number> => {
   return new Promise((resolve) => {
-    if (!ffmpegPath) {
+    const activeFfmpeg = getFfmpegPath();
+    if (!activeFfmpeg) {
       return resolve(10); // default fallback duration
     }
-    exec(`"${ffmpegPath}" -i "${videoPath}"`, (error, stdout, stderr) => {
+    exec(`"${activeFfmpeg}" -i "${videoPath}"`, (error, stdout, stderr) => {
       const output = stderr || stdout || "";
       const match = output.match(/Duration: (\d{2}):(\d{2}):(\d{2})\.(\d{2})/);
       if (match) {
@@ -36,12 +54,13 @@ const extractFrame = (
   outputPath: string
 ): Promise<void> => {
   return new Promise((resolve, reject) => {
-    if (!ffmpegPath) {
+    const activeFfmpeg = getFfmpegPath();
+    if (!activeFfmpeg) {
       return reject(new Error("FFmpeg binary path not found."));
     }
     // Extract a high quality frame at ss time
     exec(
-      `"${ffmpegPath}" -y -ss ${timeSeconds} -i "${videoPath}" -vframes 1 -q:v 2 "${outputPath}"`,
+      `"${activeFfmpeg}" -y -ss ${timeSeconds} -i "${videoPath}" -vframes 1 -q:v 2 "${outputPath}"`,
       (error) => {
         if (error) {
           return reject(error);
