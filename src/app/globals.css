@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0E0F0F;
-  --secondary-surface: #1A1C1A;
-  --accent-green: #A3C853;
-  --soft-gray: #2B2D2B;
+  --background: #05070f;
+  --secondary-surface: #0f111a;
+  --accent-green: #c5f82a;
+  --soft-gray: #1b1e2b;
   --white-text: #FFFFFF;
-  --muted-text: #B8B8B8;
-  --card-bg: rgba(255, 255, 255, 0.04);
+  --muted-text: #94a3b8;
+  --card-bg: rgba(255, 255, 255, 0.03);
   --gold: #f59e0b;
   --red: #ef4444;
   --indigo: #6366f1;
@@ -26,6 +26,11 @@
   --color-red-accent: var(--red);
   --color-indigo-accent: var(--indigo);
   --color-teal-accent: var(--teal);
+  
+  /* Resolve missing custom colors from visual commentary uploader and page structures */
+  --color-neon-green: #c5f82a;
+  --color-neon-volt: #bef264;
+  --color-neon-border-gold: #f59e0b;
   
   --font-bebas: var(--font-bebas-neue), sans-serif;
   --font-poppins: var(--font-poppins), sans-serif;
@@ -47,9 +52,9 @@ body {
   right: 0;
   height: 900px;
   background: 
-    radial-gradient(circle 350px at 15% -50px, rgba(163, 200, 83, 0.22), transparent 75%),
-    radial-gradient(circle 450px at 50% -100px, rgba(163, 200, 83, 0.14), transparent 75%),
-    radial-gradient(circle 350px at 85% -50px, rgba(163, 200, 83, 0.18), transparent 75%),
+    radial-gradient(circle 350px at 15% -50px, rgba(197, 248, 42, 0.22), transparent 75%),
+    radial-gradient(circle 450px at 50% -100px, rgba(197, 248, 42, 0.14), transparent 75%),
+    radial-gradient(circle 350px at 85% -50px, rgba(197, 248, 42, 0.18), transparent 75%),
     radial-gradient(circle 600px at 50% 400px, rgba(14, 15, 15, 0), var(--background));
   pointer-events: none;
   z-index: 1;
@@ -64,8 +69,8 @@ body {
   height: 1000px;
   background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(163, 200, 83, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(163, 200, 83, 0.015) 1px, transparent 1px);
+    linear-gradient(to right, rgba(197, 248, 42, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(197, 248, 42, 0.015) 1px, transparent 1px);
   mask-image: radial-gradient(ellipse at 50% 20%, black 30%, transparent 80%);
   pointer-events: none;
   z-index: 0;
@@ -78,7 +83,7 @@ body {
   left: 10%;
   width: 400px;
   height: 800px;
-  background: conic-gradient(from 135deg at 50% 0%, rgba(163, 200, 83, 0.07) 0deg, transparent 50deg);
+  background: conic-gradient(from 135deg at 50% 0%, rgba(197, 248, 42, 0.07) 0deg, transparent 50deg);
   filter: blur(15px);
   transform: rotate(-12deg);
   pointer-events: none;
@@ -91,7 +96,7 @@ body {
   right: 10%;
   width: 400px;
   height: 800px;
-  background: conic-gradient(from 225deg at 50% 0%, rgba(163, 200, 83, 0.07) 0deg, transparent 50deg);
+  background: conic-gradient(from 225deg at 50% 0%, rgba(197, 248, 42, 0.07) 0deg, transparent 50deg);
   filter: blur(15px);
   transform: rotate(12deg);
   pointer-events: none;
